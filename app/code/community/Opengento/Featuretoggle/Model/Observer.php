@@ -16,23 +16,24 @@
 
 class Opengento_Featuretoggle_Model_Observer
 {
+
+    const TOGGLE_FEATURE_CODE = 'toggle_feature';
     /**
      * @param Varien_Event_Observer $observer
      * @event controller_action_predispatch
      */
     public function addCustomerCookie(Varien_Event_Observer $observer)
     {
-        $value = json_encode(array('key_1', 'value_1'));
+        if($observer->getEvent()->getControllerAction()->getResponse()->getHttpResponseCode() == '200') {
+            if($value = Mage::getSingleton('core/cookie')->get(self::TOGGLE_FEATURE_CODE)) {
+                Mage::getSingleton('core/cookie')->set(self::TOGGLE_FEATURE_CODE, $value, 60*60*24*365);
 
-        if(
-            $observer->getEvent()->getControllerAction()->getResponse()->getHttpResponseCode() == '200'
-            &&
-            Mage::getSingleton('core/cookie')->get('toggle_feature')
-        ) {
-            Mage::getSingleton('core/cookie')->set('toggle_feature', $value, 60*60*24*365);
+            } else {
+                $value = json_encode(array('random' => rand(1,100)));
+                Mage::getSingleton('core/cookie')->set(self::TOGGLE_FEATURE_CODE, $value, 60*60*24*365);
+            }
         }
-
-
+        Mage::helper('opengento_featuretoggle')->isToggle();
 
     }
 }

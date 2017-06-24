@@ -18,13 +18,13 @@
 -->
 <features>
     <toto>
-        <id>toto</id>
-        <name>dsfs</name>
-        <description>fdsf</description>
+        <id>first_feature</id>
+        <name>First Feature</name>
+        <description>Description of the first feature</description>
     </toto>
     <tata>
-        <id>tata</id>
-        <name>dsfs</name>
-        <description>fdsf</description>
+        <id>second_feature</id>
+        <name>Second Feature</name>
+        <description>Description of second feature</description>
     </tata>
 </features>

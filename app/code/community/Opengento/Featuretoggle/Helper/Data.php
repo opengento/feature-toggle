@@ -129,4 +129,26 @@ class Opengento_Featuretoggle_Helper_Data extends Mage_Core_Helper_Abstract
         }
         $value = $this->_serializeValue($value);
         return $value;
-    }}
+    }
+
+    public function isToggle($percent = null)
+    {
+        if(!$percent) {
+            $cookie     = json_decode(Mage::getSingleton('core/cookie')->get(Opengento_Featuretoggle_Model_Observer::TOGGLE_FEATURE_CODE));
+            $percent = $cookie->random;
+        }
+        $featuresEnabled    = array();
+        $features           = unserialize(Mage::getStoreConfig('featuretoggle_config/features/values'));
+
+        if(!empty($features) && is_array($features)) {
+            foreach ($features as $feature) {
+                if($percent < $feature['value']) {
+                    $featuresEnabled[] = $feature['feature_id'];
+                }
+            }
+        }
+
+        Mage::log($featuresEnabled);
+        return $featuresEnabled;
+    }
+}
