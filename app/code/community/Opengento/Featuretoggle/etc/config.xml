@@ -39,4 +39,17 @@
             </opengento_featuretoggle>
         </blocks>
     </global>
+    <frontend>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <opengento_featuretoggle>
+                        <type>singleton</type>
+                        <class>opengento_featuretoggle/observer</class>
+                        <method>addCustomerCookie</method>
+                    </opengento_featuretoggle>
+                </observers>
+            </controller_action_predispatch>
+        </events>
+    </frontend>
 </config>
