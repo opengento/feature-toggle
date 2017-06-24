@@ -1,0 +1,65 @@
+#####################
+# Versioning IGNORE #
+#####################
+.CVS
+/.svn
+/.git
+.hg
+
+##################
+# OS File IGNORE #
+##################
+# Mac OsX
+.DS_Store
+._*
+*.bak
+*~
+*ORIGINAL
+
+# Windows
+Thumbs.db
+
+# Linux
+.cache
+
+#####################
+# Extensions IGNORE #
+#####################
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.zip
+
+#####################
+# IDE EDITOR IGNORE #
+#####################
+
+### Zend Studio ###
+/.buildpath
+/.project
+/.settings
+/.delete
+
+### PhpStorm ###
+/.idea
+
+### Netbeans ###
+/nbproject
+
+### Mac TextMate ###
+.tmproj
+
+### Mac MextMate ###
+*.esproj
+
+### Sublime Text ###
+*.sublime-project
+*.sublime-workspace
+
+##################
+# COMPASS / SASS #
+##################
+*.sass-cache
