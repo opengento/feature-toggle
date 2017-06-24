@@ -32,6 +32,11 @@
             <opengento_featuretoggle>
                 <class>Opengento_Featuretoggle_Model</class>
             </opengento_featuretoggle>
+            <core>
+                <rewrite>
+                    <layout>Opengento_Featuretoggle_Model_Override_Core_Layout</layout>
+                </rewrite>
+            </core>
         </models>
         <blocks>
             <opengento_featuretoggle>

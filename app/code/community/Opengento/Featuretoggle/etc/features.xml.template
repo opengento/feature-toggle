@@ -16,15 +16,16 @@
  */
 
 -->
+
 <features>
-    <toto>
+    <first_feature>
         <id>first_feature</id>
         <name>First Feature</name>
         <description>Description of the first feature</description>
-    </toto>
-    <tata>
+    </first_feature>
+    <second_feature>
         <id>second_feature</id>
         <name>Second Feature</name>
         <description>Description of second feature</description>
-    </tata>
+    </second_feature>
 </features>

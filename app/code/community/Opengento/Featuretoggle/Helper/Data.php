@@ -131,24 +131,35 @@ class Opengento_Featuretoggle_Helper_Data extends Mage_Core_Helper_Abstract
         return $value;
     }
 
-    public function isToggle($percent = null)
+
+    /**
+     * Return true if the random user cookie is less than
+     * feature value set in system/config for the feature code
+     *
+     * @param null $percent
+     * @return array|bool
+     */
+    public function showFeature($featureCode, $percent = null)
     {
         if(!$percent) {
             $cookie     = json_decode(Mage::getSingleton('core/cookie')->get(Opengento_Featuretoggle_Model_Observer::TOGGLE_FEATURE_CODE));
-            $percent = $cookie->random;
+            if(!empty($cookie)) {
+                $percent = $cookie->random;
+            } else {
+                return false;
+            }
         }
-        $featuresEnabled    = array();
-        $features           = unserialize(Mage::getStoreConfig('featuretoggle_config/features/values'));
+
+        $features = unserialize(Mage::getStoreConfig('featuretoggle_config/features/values'));
 
         if(!empty($features) && is_array($features)) {
             foreach ($features as $feature) {
-                if($percent < $feature['value']) {
-                    $featuresEnabled[] = $feature['feature_id'];
+                if($feature['feature_id'] == $featureCode && $percent < $feature['value']) {
+                    return true;
                 }
             }
         }
 
-        Mage::log($featuresEnabled);
-        return $featuresEnabled;
+        return false;
     }
 }

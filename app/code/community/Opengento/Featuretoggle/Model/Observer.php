@@ -19,6 +19,8 @@ class Opengento_Featuretoggle_Model_Observer
 
     const TOGGLE_FEATURE_CODE = 'toggle_feature';
     /**
+     * Set Toggle cookie with random value on user cookie
+     *
      * @param Varien_Event_Observer $observer
      * @event controller_action_predispatch
      */
@@ -33,7 +35,5 @@ class Opengento_Featuretoggle_Model_Observer
                 Mage::getSingleton('core/cookie')->set(self::TOGGLE_FEATURE_CODE, $value, 60*60*24*365);
             }
         }
-        Mage::helper('opengento_featuretoggle')->isToggle();
-
     }
 }
