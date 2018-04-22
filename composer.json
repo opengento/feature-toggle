@@ -1,0 +1,14 @@
+{
+    "name": "opengento/featuretoggle",
+    "description": "Magento module which adds Toggle Flags feature.",
+    "type": "magento-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "OpenGento Association"
+        }
+    ],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "Allows to manage this package as a dependency."
+    }
+}
